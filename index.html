@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Akash Khedar" />
+    <title>404 Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+
+      .pixelify-sans-kashi {
+        font-family: "Pixelify Sans", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .jacquard-12-regular {
+        font-family: "Jacquard 12", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        height: 100%;
+        font-family: "Arial", sans-serif;
+        background-color: #1a1a1a;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .error-content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        margin-top: -50px; /* Move the text up a little */
+      }
+
+      .error-code {
+        font-size: 12rem;
+        font-weight: bold;
+        margin: 0;
+        color: #ff6347;
+        text-transform: uppercase;
+        letter-spacing: -0.1rem;
+        text-shadow: 2px 2px 10px rgba(255, 99, 71, 0.5);
+      }
+
+      .error-message {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        color: #ccc;
+        opacity: 0.8;
+        letter-spacing: 0.05rem;
+      }
+
+      .signature {
+        position: absolute;
+        bottom: 1rem;
+        right: 2rem;
+        font-size: 1rem;
+        color: #999;
+        opacity: 0.5;
+      }
+
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.8)
+        );
+        background-size: 200% 200%;
+        z-index: 0;
+        animation: bgAnimation 8s infinite alternate;
+      }
+
+      @keyframes bgAnimation {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+
+      /* Ghost animation styles */
+      .ghosts {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .ghost {
+        position: absolute;
+        bottom: 0;
+        width: 20px;
+        height: 20px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        animation: ghostAnimation 2s ease-in-out infinite;
+        opacity: 0;
+      }
+
+      /* Create 34 ghosts with different colors and positions */
+      .ghost:nth-child(odd) {
+        background-color: rgba(255, 0, 0, 0.6);
+      }
+
+      .ghost:nth-child(even) {
+        background-color: rgba(0, 255, 0, 0.6);
+      }
+
+      @keyframes ghostAnimation {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(-50px);
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .error-code {
+          font-size: 8rem;
+        }
+
+        .error-message {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .error-code {
+          font-size: 6rem;
+        }
+
+        .error-message {
+          font-size: 1rem;
+        }
+      }
+
+      .heretics-logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 200px;
+        height: auto;
+        z-index: 2;
+      }
+
+      /* SVG Gradient and Shadow Styling */
+      .gradient-text {
+        fill: url(#grad1);
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+      }
+
+      @keyframes rotateLogo {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="error-content">
+        <h1 class="error-code jacquard-12-regular">
+          <span class="rotating">4</span>
+          <span>0</span>
+          <span class="rotating">4</span>
+        </h1>
+        <p class="error-message pixelify-sans-kashi">
+          Oops! The page you're looking for doesn't exist.
+        </p>
+      </div>
+    </div>
+
+    <!-- HERETICS SVG with gradient and shadow -->
+    <svg
+      class="heretics-logo"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 200 50"
+    >
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop
+            offset="0%"
+            style="stop-color: rgb(255, 99, 71); stop-opacity: 1"
+          />
+          <stop
+            offset="100%"
+            style="stop-color: rgb(0, 255, 255); stop-opacity: 1"
+          />
+        </linearGradient>
+      </defs>
+      <text
+        x="0"
+        y="35"
+        font-family="Arial, sans-serif"
+        font-size="40"
+        class="gradient-text"
+        font-weight="bold"
+      >
+        HERETICS
+      </text>
+    </svg>
+
+    <script>
+      // GSAP Animation for the 404 text with rotation on the 0
+      gsap.fromTo(
+        ".error-code",
+        {
+          y: 0,
+        },
+        {
+          y: -20,
+          duration: 1,
+          ease: "power1.inOut",
+          yoyo: true,
+          repeat: -1,
+        }
+      );
+
+      gsap.fromTo(
+        ".rotating",
+        {
+          rotation: 0,
+        },
+        {
+          rotation: 360,
+          duration: 2,
+          ease: "power1.inOut",
+          repeat: -1,
+          yoyo: true,
+        }
+      );
+    </script>
+  </body>
+</html>
